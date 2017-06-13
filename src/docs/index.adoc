@@ -1,0 +1,19 @@
+= Introduction to Documentation 
+Jenn Strater; 
+:doctype: book
+ :icons: font 
+:source-highlighter: highlightjs 
+:toc: left
+ :toclevels: 4 
+:sectlinks: 
+
+== Introduction
+This is an example document to show the basic capabilities of asciidoc and asciidoctor
+ when included in a simple Groovy project.
+
+=== Subsection
+This is an example subsection
+
+== Lists
+- This is an example list item
+- Here is another list item
