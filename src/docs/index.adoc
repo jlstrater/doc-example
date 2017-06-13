@@ -1,11 +1,14 @@
-= Introduction to Documentation 
-Jenn Strater; 
-:doctype: book
- :icons: font 
-:source-highlighter: highlightjs 
-:toc: left
- :toclevels: 4 
-:sectlinks: 
+= Introduction to Documentation
+Jennifer Strater <jenn.strater@gmail.com>
+{localdate}
+
+:toc:
+:icons: font
+
+ifdef::backend-html5[]
+== Note
+This document is an example of asciidoctor as html. If you'd prefer a pdf, you can download it link:../pdf/index.pdf[here].
+endif::[]
 
 == Introduction
 This is an example document to show the basic capabilities of asciidoc and asciidoctor
@@ -15,5 +18,20 @@ This is an example document to show the basic capabilities of asciidoc and ascii
 This is an example subsection
 
 == Lists
-- This is an example list item
-- Here is another list item
+
+- This is a list item
+- This is another list item
+
+=== Source code
+You can also include source code examples like this `Hello World` script:
+
+[source,groovy]
+----
+println 'Hello, World!'
+----
+
+You can also reference source code within a project like this:
+
+
+Or even from an external link (if enabled):
+

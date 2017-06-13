@@ -7,9 +7,16 @@
  */
 
 buildscript {
-    dependencies {
-        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3' 
+    repositories {
+        jcenter()
     }
+    dependencies {
+        classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.11'
+    }
+}
+
+plugins {
+    id 'org.asciidoctor.convert' version '1.5.3'
 }
 
 // Apply the groovy plugin to add support for Groovy
@@ -17,8 +24,6 @@ apply plugin: 'groovy'
 
 // Apply the application plugin to add support for building an application
 apply plugin: 'application'
-
-apply plugin: 'org.asciidoctor.convert' 
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -38,17 +43,21 @@ dependencies {
 // Define the main class for the application
 mainClassName = 'App'
 
- asciidoctor { 
- sourceDir = file('src/docs') 
- outputDir "$buildDir/docs"
- backends 'html5' 
- attributes 'source-highlighter': 'prettify', 
-    'imagesdir':'images', 
-    'toc':'left', 
-    'icons': 'font', 
-    'setanchors':'true', 
-    'idprefix':'', 
-    'idseparator':'-', 
-    'docinfo1':'true'
- } 
+asciidoctor {
+    sourceDir = file('src/docs')
+    sources {
+        include 'index.adoc'
+    }
+    backends = ['html','pdf']
+    outputDir file('build/docs')
+    attributes \
+        'sourcedir': file(buildDir.path + "/docs/snippets"),
+            'reportdir': file(buildDir.path + "/docs/bytecode/reports"),
+            'source-highlighter': 'coderay',
+            'toc': '',
+            'idprefix': '',
+            'idseparator': '-',
+            'allow-uri-read': true
+}
 
+build.dependsOn asciidoctor
