@@ -51,8 +51,6 @@ asciidoctor {
     backends = ['html','pdf']
     outputDir file('build/docs')
     attributes \
-        'sourcedir': file(buildDir.path + "/docs/snippets"),
-            'reportdir': file(buildDir.path + "/docs/bytecode/reports"),
             'source-highlighter': 'coderay',
             'toc': '',
             'idprefix': '',
