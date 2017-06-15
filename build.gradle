@@ -51,11 +51,12 @@ asciidoctor {
     backends = ['html','pdf']
     outputDir file('build/docs')
     attributes \
-            'source-highlighter': 'coderay',
-            'toc': '',
-            'idprefix': '',
-            'idseparator': '-',
-            'allow-uri-read': true
+        'source-highlighter': 'coderay',
+        'toc': '',
+        'idprefix': '',
+        'idseparator': '-',
+        'allow-uri-read': true,
+        'sourcedir': file('src/main/groovy')
 }
 
 build.dependsOn asciidoctor

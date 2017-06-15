@@ -10,19 +10,20 @@ ifdef::backend-html5[]
 This document is an example of asciidoctor as html. If you'd prefer a pdf, you can download it link:../pdf/index.pdf[here].
 endif::[]
 
+[introduction]
 == Introduction
 This is an example document to show the basic capabilities of asciidoc and asciidoctor
  when included in a simple Groovy project.
 
 === Subsection
-This is an example subsection
+This is an example subsection. It appears underneath the <<introduction>> section.
 
 == Lists
 
 - This is a list item
 - This is another list item
 
-=== Source code
+== Source Code
 You can also include source code examples like this `Hello World` script:
 
 [source,groovy]
@@ -32,6 +33,7 @@ println 'Hello, World!'
 
 You can also reference source code within a project like this:
 
-
-Or even from an external link (if enabled):
-
+[source,groovy, linenums]
+----
+include::{sourcedir}/App.groovy[lines=5..7]
+----
